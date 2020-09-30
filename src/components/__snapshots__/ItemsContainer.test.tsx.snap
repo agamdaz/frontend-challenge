@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Renders ListContainer component with items 1`] = `
+<ul
+  class="f1fmxlhp"
+  data-testid="items-container"
+>
+  <li
+    class="f1v5ywig"
+    data-testid="list-item"
+  >
+    <button
+      class="f1f3cgq1"
+    >
+      AnyFirstItem
+    </button>
+  </li>
+  <li
+    class="f1v5ywig"
+    data-testid="list-item"
+  >
+    <button
+      class="f1f3cgq1"
+    >
+      AnySecondItem
+    </button>
+  </li>
+</ul>
+`;
+
+exports[`Renders ListContainer component with no items 1`] = `
+<ul
+  class="f1fmxlhp"
+  data-testid="items-container"
+/>
+`;

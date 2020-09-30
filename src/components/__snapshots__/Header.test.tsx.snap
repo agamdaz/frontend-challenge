@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Renders Header component 1`] = `
+<header
+  class="fgayq2g"
+  data-testid="app-header"
+>
+  <input
+    class="f10tqc7z"
+    placeholder="AnyPlaceholder"
+    type="text"
+  />
+  <button
+    class="f18k3v34"
+  >
+    AnyButtonLabel
+  </button>
+</header>
+`;

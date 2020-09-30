@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Renders ListItem component 1`] = `
+<li
+  class="f1v5ywig"
+  data-testid="list-item"
+>
+  <button
+    class="f1f3cgq1"
+  >
+    AnyItemLabel
+  </button>
+</li>
+`;

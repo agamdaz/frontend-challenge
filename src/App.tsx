@@ -1,8 +1,10 @@
 import React from 'react';
-import { Header } from "./components/Header";
-import { ItemsContainer } from "./components/ItemsContainer";
+import { useSelector } from 'react-redux';
+import { items } from './app/itemsSlice';
+import { Header } from './components/Header';
+import { ItemsContainer } from './components/ItemsContainer';
 import { cssRaw, cssRule, style, media } from 'typestyle';
-import { normalize, setupPage } from "csstips";
+import { normalize, setupPage } from 'csstips';
 
 cssRaw(`
   @import url('https://fonts.googleapis.com/css?family=Courier+Prime');
@@ -30,22 +32,21 @@ const itemsContainer = style({
   display: 'flex',
 })
 
-const itemsAvailable = ['Enterprise', 'Atlantis', 'Columbia', 'Endeavour']
-const itemsSelected: string[] = []
-
 const headerTranslations = {
   inputPlaceholder: "Type to search",
   buttonLabel: "Clear all!",
 }
 
 function App() {
+  const { available, selected } = useSelector(items)
+
   return (
     <div className={pageContainer}>
       <main className={mainLayout}>
         <Header {...headerTranslations}/>
         <section className={itemsContainer}>
-          <ItemsContainer items={itemsAvailable}/>
-          <ItemsContainer items={itemsSelected}/>
+          <ItemsContainer items={available}/>
+          <ItemsContainer items={selected}/>
         </section>
       </main>
     </div>

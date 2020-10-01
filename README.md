@@ -1,5 +1,10 @@
 # OrbitalAds frontend challenge
 
+[Description](#Description)  
+[Available Scripts](#Available-Scripts)
+
+
+## Description
 **By using *React + Typescript* you have to create a multi select component that allows the user to:**
 - Select item by item
 - See the selected items

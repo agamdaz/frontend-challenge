@@ -41,12 +41,13 @@ function App() {
   const { available, selected } = useSelector(items)
   const dispatch = useDispatch();
   const clear = () => dispatch(clearItems());
+  const clearActive = selected.length === 0;
   const toggle = (label:string) => dispatch(toggleItem(label));
 
   return (
     <div className={pageContainer}>
       <main className={mainLayout}>
-        <Header {...headerTranslations} onClick={clear}/>
+        <Header {...headerTranslations} onClick={clear} clearActive={clearActive}/>
         <section className={itemsContainer}>
           <ItemsContainer items={available} onClick={toggle}/>
           <ItemsContainer items={selected} onClick={toggle}/>

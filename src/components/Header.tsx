@@ -39,18 +39,24 @@ const button = style({
       outlineColor: 'transparent',
       outlineStyle: 'none',
     },
+    '&:disabled': {
+      background: '#ececec',
+      borderColor: '#ececec',
+      cursor: 'not-allowed',
+    }
   }
 }, media({ maxWidth: 420 }, { flexGrow: 1 }));
 
 type HeaderProps = {
   inputPlaceholder: string,
   buttonLabel: string,
+  clearActive: boolean,
   onClick: () => void,
 }
 
-export const Header = ({inputPlaceholder, buttonLabel, onClick}: HeaderProps) => (
+export const Header = ({inputPlaceholder, buttonLabel, onClick, clearActive}: HeaderProps) => (
   <header data-testid="app-header" className={header}>
     <input className={inputText} type="text" placeholder={inputPlaceholder}/>
-    <button className={button} onClick={() => onClick()}>{buttonLabel}</button>
+    <button className={button} onClick={() => onClick()} disabled={clearActive}>{buttonLabel}</button>
   </header>
 );

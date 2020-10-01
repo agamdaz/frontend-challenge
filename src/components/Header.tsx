@@ -1,22 +1,23 @@
 import React from 'react';
 import { media, style } from 'typestyle';
+import { commonCss } from './_commonCss';
 
 const header = style({
   display: 'flex',
   flexWrap: 'wrap',
   justifyContent: 'space-between',
-  padding: '8px',
-  border: '2px solid #000',
+  padding: commonCss.baseSpacing,
+  border: commonCss.defaultBorder,
 });
 
 const inputText = style({
-  margin: '8px',
-  padding: '8px',
+  margin: commonCss.baseSpacing,
+  padding: commonCss.baseSpacing,
   maxWidth: '100%',
-  background: '#ececec',
+  background: commonCss.secondaryColor,
   border: 'none',
-  borderBottom: '2px solid #000',
-  fontFamily: 'Courier Prime, monospace',
+  borderBottom: commonCss.defaultBorder,
+  fontFamily: commonCss.fontFamily,
   fontWeight: 600,
   $nest: {
     '&:focus': {
@@ -27,11 +28,11 @@ const inputText = style({
 }, media({ maxWidth: 420 }, { flexGrow: 1 }));
 
 const button = style({
-  margin: '8px',
-  padding: '8px',
-  background: '#fff',
-  border: '2px solid #000',
-  fontFamily: 'Courier Prime, monospace',
+  margin: commonCss.baseSpacing,
+  padding: commonCss.baseSpacing,
+  background: commonCss.backgroundColor,
+  border: commonCss.defaultBorder,
+  fontFamily: commonCss.fontFamily,
   fontWeight: 600,
   cursor: 'pointer',
   $nest: {
@@ -40,8 +41,8 @@ const button = style({
       outlineStyle: 'none',
     },
     '&:disabled': {
-      background: '#ececec',
-      borderColor: '#ececec',
+      background: commonCss.secondaryColor,
+      borderColor: commonCss.secondaryColor,
       cursor: 'not-allowed',
     }
   }

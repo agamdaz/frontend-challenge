@@ -10,7 +10,7 @@ exports[`Renders ListContainer component with items 1`] = `
     data-testid="list-item"
   >
     <button
-      class="f1f3cgq1"
+      class="f1h46qw"
     >
       AnyFirstItem
     </button>
@@ -20,7 +20,7 @@ exports[`Renders ListContainer component with items 1`] = `
     data-testid="list-item"
   >
     <button
-      class="f1f3cgq1"
+      class="f1h46qw"
     >
       AnySecondItem
     </button>

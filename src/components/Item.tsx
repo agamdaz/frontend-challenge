@@ -1,5 +1,6 @@
 import React from 'react';
 import { style } from 'typestyle';
+import { commonCss } from "./_commonCss";
 
 const itemList = style({
   listStyleType: 'none',
@@ -7,17 +8,17 @@ const itemList = style({
 
 const itemButton = style({
   width: '100%',
-  padding: '16px',
+  padding: commonCss.doubleSpacing,
   border: 'none',
-  borderBottom: '3px solid #000',
-  backgroundColor: '#fff',
-  fontFamily: 'Courier Prime, monospace',
+  borderBottom: commonCss.defaultBorder,
+  backgroundColor: commonCss.backgroundColor,
+  fontFamily: commonCss.fontFamily,
   fontWeight: 600,
   textAlign: 'left',
   cursor: 'pointer',
   $nest: {
     '&:hover': {
-      backgroundColor: '#ececec',
+      backgroundColor: commonCss.secondaryColor,
     },
     '&:focus': {
       outlineColor: 'transparent',

@@ -6,7 +6,7 @@ exports[`Renders ListItem component 1`] = `
   data-testid="list-item"
 >
   <button
-    class="f1f3cgq1"
+    class="f1h46qw"
   >
     AnyItemLabel
   </button>

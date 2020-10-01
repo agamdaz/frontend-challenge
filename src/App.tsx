@@ -4,29 +4,20 @@ import { items, clearItems, toggleItem } from './app/itemsSlice';
 import { getAvailable, getSelected } from "./app/itemsAdapter";
 import { Header } from './components/Header';
 import { ItemsContainer } from './components/ItemsContainer';
-import { cssRaw, cssRule, style, media } from 'typestyle';
-import { normalize, setupPage } from 'csstips';
+import { style, media } from 'typestyle';
+import { layoutCssSetup, commonCss } from './components/_commonCss';
 
-cssRaw(`
-  @import url('https://fonts.googleapis.com/css?family=Courier+Prime');
-`);
-
-normalize();
-setupPage('#root');
-
-cssRule('body', {
-  backgroundImage: 'url("background.svg")',
-});
+layoutCssSetup();
 
 const pageContainer = style({
   margin: 'auto',
   maxWidth: '580px',
-  padding: '8px',
+  padding: commonCss.baseSpacing,
 }, media({ minWidth: 420 }, { marginTop: '10vh' }))
 
 const mainLayout = style({
-  border: '2px solid #000',
-  background: '#fff',
+  border: commonCss.defaultBorder,
+  background: commonCss.backgroundColor,
 })
 
 const itemsContainer = style({

@@ -1,9 +1,9 @@
-import React from "react";
-import {style} from "typestyle";
+import React from 'react';
+import { style } from 'typestyle';
 
 const itemList = style({
   listStyleType: 'none',
-})
+});
 
 const itemButton = style({
   width: '100%',
@@ -24,14 +24,15 @@ const itemButton = style({
       outlineStyle: 'none',
     },
   }
-})
+});
 
 type ListItemProps = {
   label: string,
+  onClick: (label: string) => void,
 }
 
-export const ListItem = ({label}: ListItemProps) => (
+export const ListItem = ({label, onClick}: ListItemProps) => (
   <li data-testid="list-item" className={itemList}>
-    <button className={itemButton}>{label}</button>
+    <button className={itemButton} onClick={() => onClick(label)}>{label}</button>
   </li>
 );

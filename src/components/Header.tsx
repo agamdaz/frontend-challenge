@@ -1,5 +1,5 @@
-import React from "react";
-import {media, style} from "typestyle";
+import React from 'react';
+import { media, style } from 'typestyle';
 
 const header = style({
   display: 'flex',
@@ -7,7 +7,7 @@ const header = style({
   justifyContent: 'space-between',
   padding: '8px',
   border: '2px solid #000',
-})
+});
 
 const inputText = style({
   margin: '8px',
@@ -24,7 +24,7 @@ const inputText = style({
       outlineStyle: 'none',
     },
   }
-}, media({ maxWidth: 420 }, { flexGrow: 1 }))
+}, media({ maxWidth: 420 }, { flexGrow: 1 }));
 
 const button = style({
   margin: '8px',
@@ -40,16 +40,17 @@ const button = style({
       outlineStyle: 'none',
     },
   }
-}, media({ maxWidth: 420 }, { flexGrow: 1 }))
+}, media({ maxWidth: 420 }, { flexGrow: 1 }));
 
 type HeaderProps = {
   inputPlaceholder: string,
   buttonLabel: string,
+  onClick: () => void,
 }
 
-export const Header = (props: HeaderProps) => (
+export const Header = ({inputPlaceholder, buttonLabel, onClick}: HeaderProps) => (
   <header data-testid="app-header" className={header}>
-    <input className={inputText} type="text" placeholder={props.inputPlaceholder}/>
-    <button className={button}>{props.buttonLabel}</button>
+    <input className={inputText} type="text" placeholder={inputPlaceholder}/>
+    <button className={button} onClick={() => onClick()}>{buttonLabel}</button>
   </header>
 );

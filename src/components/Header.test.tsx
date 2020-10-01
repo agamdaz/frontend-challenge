@@ -6,8 +6,9 @@ test('Renders Header component with clear active', () => {
   render(<Header
     buttonLabel="AnyButtonLabel"
     inputPlaceholder="AnyPlaceholder"
-    onClick={() => jest.isMockFunction}
-    clearActive={false}
+    clearButtonActive={false}
+    clearButtonClick={() => jest.isMockFunction}
+    filterType={jest.isMockFunction}
   />);
   expect(screen.getByTestId('app-header')).toMatchSnapshot();
 });
@@ -16,8 +17,9 @@ test('Renders Header component with clear disabled', () => {
   render(<Header
     buttonLabel="AnyButtonLabel"
     inputPlaceholder="AnyPlaceholder"
-    onClick={() => jest.isMockFunction}
-    clearActive={true}
+    clearButtonActive={true}
+    clearButtonClick={() => jest.isMockFunction}
+    filterType={jest.isMockFunction}
   />);
   expect(screen.getByTestId('app-header')).toMatchSnapshot();
 });

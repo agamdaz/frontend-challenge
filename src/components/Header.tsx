@@ -50,13 +50,28 @@ const button = style({
 type HeaderProps = {
   inputPlaceholder: string,
   buttonLabel: string,
-  clearActive: boolean,
-  onClick: () => void,
+  clearButtonActive: boolean,
+  clearButtonClick: () => void,
+  filterType: (e:any) => void,
 }
 
-export const Header = ({inputPlaceholder, buttonLabel, onClick, clearActive}: HeaderProps) => (
-  <header data-testid="app-header" className={header}>
-    <input className={inputText} type="text" placeholder={inputPlaceholder}/>
-    <button className={button} onClick={() => onClick()} disabled={clearActive}>{buttonLabel}</button>
-  </header>
-);
+export const Header = (props: HeaderProps) => {
+  const {inputPlaceholder, buttonLabel, clearButtonActive, clearButtonClick, filterType} = props;
+
+  return (
+    <header data-testid="app-header" className={header}>
+      <input
+        className={inputText}
+        type="text"
+        onChange={filterType}
+        placeholder={inputPlaceholder}/>
+      <button
+        className={button}
+        onClick={() => clearButtonClick()}
+        disabled={clearButtonActive}
+      >
+        {buttonLabel}
+      </button>
+    </header>
+  );
+}

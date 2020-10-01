@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { items, clearItems, toggleItem } from './app/itemsSlice';
 import { getAvailable, getSelected } from "./app/itemsAdapter";
@@ -33,26 +33,28 @@ const itemsContainer = style({
   display: 'flex',
 })
 
-const headerTranslations = {
-  inputPlaceholder: "Type to search",
-  buttonLabel: "Clear all!",
-}
-
 function App() {
+  const [filterCharacters, setFilterCharacters] = useState('');
+
   const storeItems = useSelector(items);
-  const available = getAvailable(storeItems);
+  const available = getAvailable(storeItems, filterCharacters);
   const selected = getSelected(storeItems);
 
   const dispatch = useDispatch();
-  const clear = () => dispatch(clearItems());
-  const clearActive = selected.length === 0;
-
   const toggle = (label:string) => dispatch(toggleItem(label));
+
+  const headerProps = {
+    inputPlaceholder: "Type to search",
+    buttonLabel: "Clear all!",
+    clearButtonActive: selected.length === 0,
+    clearButtonClick: () => dispatch(clearItems()),
+    filterType: (e:any) => setFilterCharacters(e.target.value),
+  }
 
   return (
     <div className={pageContainer}>
       <main className={mainLayout}>
-        <Header {...headerTranslations} onClick={clear} clearActive={clearActive}/>
+        <Header {...headerProps}/>
         <section className={itemsContainer}>
           <ItemsContainer items={available} onClick={toggle}/>
           <ItemsContainer items={selected} onClick={toggle}/>

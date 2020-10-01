@@ -1,6 +1,7 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { items, clearItems, toggleItem } from './app/itemsSlice';
+import { getAvailable, getSelected } from "./app/itemsAdapter";
 import { Header } from './components/Header';
 import { ItemsContainer } from './components/ItemsContainer';
 import { cssRaw, cssRule, style, media } from 'typestyle';
@@ -38,10 +39,14 @@ const headerTranslations = {
 }
 
 function App() {
-  const { available, selected } = useSelector(items)
+  const storeItems = useSelector(items);
+  const available = getAvailable(storeItems);
+  const selected = getSelected(storeItems);
+
   const dispatch = useDispatch();
   const clear = () => dispatch(clearItems());
   const clearActive = selected.length === 0;
+
   const toggle = (label:string) => dispatch(toggleItem(label));
 
   return (

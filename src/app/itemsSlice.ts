@@ -23,15 +23,6 @@ export const itemsSlice = createSlice({
 });
 
 export const { toggleItem, clearItems } = itemsSlice.actions;
-
-export const items = (state: RootState) => {
-  let available: string[] = [];
-  let selected: string[] = [];
-
-  state.items.value.forEach(item =>
-      item.selected ? selected.push(item.item) : available.push(item.item));
-
-  return { available, selected }
-};
+export const items = (state: RootState) => state.items.value;
 
 export default itemsSlice.reducer;
